@@ -1,6 +1,5 @@
-/* styles.css */
 body {
-    background-image: url('images/background.webp'); /* Use the cozy background image */
+    background-image: url('images/background.webp');
     background-size: cover;
     font-family: Arial, sans-serif;
     display: flex;
@@ -12,15 +11,30 @@ body {
 }
 
 .container {
-    background: rgba(255, 255, 255, 0.493);
+    background: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
+    max-width: 600px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .todo-app {
+    display: flex;
+    gap: 20px;
+}
+
+.add-task {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.task-list-section {
+    width: 50%;
     display: flex;
     flex-direction: column;
 }
@@ -30,7 +44,7 @@ input[type="text"] {
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-bottom: 10px;
-    width: calc(100% - 24px);
+    width: 100%;
 }
 
 button {
@@ -50,6 +64,7 @@ button:hover {
 ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 li {
