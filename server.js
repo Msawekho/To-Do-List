@@ -1,32 +1,47 @@
-// server.js
 import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Resolve __dirname for ES module usage
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
-
 const port = 3000;
 
-app.set("view engine", "js");
+// Serve static files (HTML, CSS, JS) from the 'public' folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Route for the main page
+app.get('/', async (req, res) => {
+    try {
+        res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    } catch (error) {
+        console.error("Error loading index.html:", error);
+        res.status(500).send("An error occurred while loading the page.");
+    }
+});
+
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
 
-let tasks=[];
+let tasks = [];
 
-
-app.get('/', (req, res) => {
-    res.render('index', { tasks });
+// POST route to add tasks
+app.post('/add', async (req, res) => {
+    try {
+        const { task } = req.body;
+        tasks.push(task);
+        res.redirect('/');
+    } catch (error) {
+        console.error("Error adding task:", error);
+        res.status(500).send("An error occurred while adding the task.");
+    }
 });
 
-app.post('/add', (req, res) => {
-    const { task } = req.body;  
-    tasks.push(task);  // Add new task to the tasks array
-    res.redirect('/');  // Redirect back to home
-});
-
-
+// Start the server
 app.listen(port, () => {
     console.log(`To-Do List app running at http://localhost:${port}`);
 });
-
 
 /*
 import express from 'express';
