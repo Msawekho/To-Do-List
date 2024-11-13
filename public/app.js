@@ -24,6 +24,10 @@ function addTask() {
     const taskText = taskInput.value.trim();
 
     if (taskText === '') return;
+    if (taskText.length > 50) {
+        alert('Task cannot exceed 50 characters.');
+        return;
+    }
     if (tasks.some(task => task.text === taskText)) {
         alert('This task already exists.');
         return;
@@ -38,7 +42,6 @@ function addTask() {
     renderTasks();
     taskInput.value = '';
 }
-
 // Function to mark a task as completed or not
 function markCompleted(button) {
     const taskItem = button.parentElement.parentElement;
