@@ -75,8 +75,3 @@ project-directory/
 4. Push to the branch (`git push origin feature/YourFeature`).
 5. Open a pull request.
 
-## License
-This project is open-source and available under the [MIT License](LICENSE).
-
-## Acknowledgments
-This project was created as part of a learning experience in building full-stack JavaScript applications.
