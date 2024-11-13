@@ -42,6 +42,7 @@ function addTask() {
     renderTasks();
     taskInput.value = '';
 }
+
 // Function to mark a task as completed or not
 function markCompleted(button) {
     const taskItem = button.parentElement.parentElement;
@@ -69,11 +70,22 @@ function removeTask(button) {
 function searchTask() {
     const searchInput = document.getElementById('search-task').value.toLowerCase();
     const tasksInDOM = taskList.getElementsByTagName('li');
+    let hasMatch = false;
 
     Array.from(tasksInDOM).forEach(task => {
-        const taskText = task.textContent.toLowerCase();
-        task.style.display = taskText.includes(searchInput) ? '' : 'none';
+        const taskText = task.querySelector('span').textContent.toLowerCase();
+        const matchesSearch = taskText.includes(searchInput);
+        task.style.display = matchesSearch ? '' : 'none';
+
+        if (matchesSearch) {
+            hasMatch = true;
+        }
     });
+
+    if (!hasMatch) {
+        alert('Task does not exist.');
+        renderTasks(); // Reset the task list to show all tasks
+    }
 }
 
 // Initial render of tasks when the page loads
