@@ -20,6 +20,22 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin: 20px;
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .todo-app {
+        flex-direction: column; /* Stack columns on top of each other on small screens */
+    }
+
+    .add-task, .task-list-section {
+        width: 100%; /* Full width for both sections */
+    }
 }
 
 .todo-app {
@@ -37,6 +53,27 @@ body {
     width: 50%;
     display: flex;
     flex-direction: column;
+}
+
+/* Ensure task list section has a limited height with a scrollbar */
+.task-list-section ul {
+    max-height: 300px; /* Set this to whatever height you want */
+    overflow-y: auto; /* Adds a vertical scrollbar when tasks overflow */
+    padding-right: 10px; /* Adds space for the scrollbar */
+}
+
+/* Styling scrollbar to blend in with the theme */
+.task-list-section ul::-webkit-scrollbar {
+    width: 8px;
+}
+
+.task-list-section ul::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 4px;
+}
+
+.task-list-section ul::-webkit-scrollbar-track {
+    background: #f1f1f1;
 }
 
 input[type="text"] {
