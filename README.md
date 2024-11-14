@@ -1,6 +1,7 @@
-To-Do List Readme File
-
 # Advanced To-Do List Application
+![01](https://github.com/user-attachments/assets/3624ef2d-add2-491b-bb7d-0b6addfe1fe2)
+
+
 
 An advanced To-Do List application that allows users to add, complete, delete, and search tasks. Built using HTML, CSS, JavaScript, Node.js, and Express, this project serves as a full-stack JavaScript application with client-server functionality and local storage.
 
@@ -11,6 +12,9 @@ An advanced To-Do List application that allows users to add, complete, delete, a
 - **Search Tasks:** Filter tasks with a real-time search input.
 - **Persistent Storage:** Tasks are saved in `localStorage` on the client-side.
 - **Responsive Design:** User-friendly design across different screen sizes.
+
+## Search function
+![02](https://github.com/user-attachments/assets/306027eb-7ade-4dbb-8c51-23e8e788077b)
 
 ## Technologies Used
 - **Frontend:** HTML, CSS, JavaScript
